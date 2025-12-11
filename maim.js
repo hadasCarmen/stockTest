@@ -1,19 +1,16 @@
 import { stockMarket } from "./data/data.js";
-import readline, {
-  question,
-  questionInt,
-  checkUserChooseToBool,
-} from "readline-sync";
+import readline, { question, questionInt } from "readline-sync";
 import {
   searchStock,
   filterStocksByPrice,
   OperateOnStock,
   checkUserChooseString,
+  checkUserChooseToBool,
 } from "./stockFunction/function.js";
 
 function UserMenu() {
   const userChoose = readline.questionInt(
-    "choose 1 to Search for a stock by name or id\nchoose 2 to Show all stocks above or below a given price\n choose 3 to Buy or sell a stock choose 4 to Exit"
+    "choose 1 to Search for a stock by name or id\nchoose 2 to Show all stocks above or below a given price\nchoose 3 to Buy or sell a stock \nchoose 4 to Exit"
   );
   let identifier;
   switch (userChoose) {
@@ -37,13 +34,16 @@ function UserMenu() {
       );
       const operation = checkUserChooseString(operationChoose);
       identifier = readline.question("choose identifier");
-      console.log(OperateOnStock(operation, identifier));
+      OperateOnStock(operation, identifier);
+      console.log('stock update');
+      
 
       break;
     case 4:
-        console.log('by by');
-        
-        return
+      console.log("by by");
+
+      return;
     //   break;
   }
 }
+// UserMenu();
