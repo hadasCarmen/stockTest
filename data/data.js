@@ -6,7 +6,7 @@ name: "BrightFuture Academy",
 id: "x7l2df9",
 currentPrice: 38,
 availableStocks: 980,
-previousPrices: [],
+previousPrices: [980,3243253253],
 category: "education",
 },
 {
