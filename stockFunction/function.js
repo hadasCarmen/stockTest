@@ -56,8 +56,10 @@ export function OperateOnStock(operation, identifier) {
     });
     allCategori.forEach((stock) => {
       if (stock.name === identifier || stock.id === identifier) {
+        stock.previousPrices.push(currentPrice)
         stock.currentPrice *= 1.05;
       } else {
+        stock.previousPrices.push(currentPrice)
         stock.currentPrice *= 1.01;
       }
     });
