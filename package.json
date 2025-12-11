@@ -1,0 +1,23 @@
+{
+  "name": "stocktest2js",
+  "version": "1.0.0",
+  "description": "elazar kowler\r 315466219\r golan",
+  "homepage": "https://github.com/hadasCarmen/stockTest#readme",
+  "bugs": {
+    "url": "https://github.com/hadasCarmen/stockTest/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hadasCarmen/stockTest.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
