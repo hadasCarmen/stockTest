@@ -11,7 +11,7 @@ export function searchStock(identifier) {
   return stockSearching;
 }
 
-function searchStockByCategory(identifier) {
+export function searchStockByCategory(identifier) {
   const stockSearching = stockMarket.stocks.filter(
     (stock) => stock.category === identifier
   );
