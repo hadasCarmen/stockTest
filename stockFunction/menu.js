@@ -5,9 +5,9 @@ import {
   OperateOnStock,
   checkUserChooseString,
   checkUserChooseToBool,
-} from "./stockFunction/function.js";
+} from "./function.js";
 
-function UserMenu() {
+export function UserMenu() {
   let notExit = true;
   while (notExit) {
     const userChoose = readline.questionInt(
