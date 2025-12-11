@@ -1,5 +1,5 @@
 import { stockMarket } from "../data/data.js";
-import {searchStockByCategory} from './function.js'
+import { searchStockByCategory } from "./function.js";
 function analyzeMarketTrends() {}
 
 function topIncreasingStocks() {
@@ -18,14 +18,11 @@ function topIncreasingStocks() {
   return getTopStock();
 }
 
-// console.log(topIncreasingStocks());
-
 function stockWithHistory() {
   return stockMarket.stocks.filter((stock) => {
     return stock.previousPrices.length > 0;
   });
 }
-// console.log(stockWithHistory());
 
 function topDecreasingStocks() {
   const relevantStock = stockWithHistory();
@@ -60,16 +57,17 @@ function mostVolatileStock() {
   return lessVolatileStock(), mostVolatileStock1();
 }
 function categoryStability(category) {
-    const array =searchStockByCategory(category)
-    const avg=getAverage(array)
+  const array = searchStockByCategory(category);
+  const avg = getAverage(array);
   return {
     category: category,
-    avg:avg
+    avg: avg,
   };
 }
 
 function getAverage(array) {
   return (
-    array.reduce((sum, stock) => sum + player.previousPrices.length, 0) / array.length
+    array.reduce((sum, stock) => sum + player.previousPrices.length, 0) /
+    array.length
   );
 }
