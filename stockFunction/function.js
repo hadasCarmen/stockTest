@@ -1,7 +1,7 @@
 import { stockMarket } from "../data/data.js";
 import readline from "readline-sync";
 
-function searchStock(identifier) {
+export function searchStock(identifier) {
   const stockSearching = stockMarket.stocks.filter(
     (stock) => stock.name === identifier || stock.id === identifier
   );
@@ -22,7 +22,7 @@ function searchStockByCategory(identifier) {
 // console.log(stockMarket.stocks);
 // console.log(searchStock("x7l2df9"));
 
-function filterStocksByPrice(givenPrice, above) {
+export function filterStocksByPrice(givenPrice, above) {
   let stockFilter;
   if (typeof givenPrice === "number") {
     if (above) {
@@ -43,7 +43,7 @@ function filterStocksByPrice(givenPrice, above) {
 
 // console.log(filterStocksByPrice(77, true));
 
-function OperateOnStock(operation, identifier) {
+export function OperateOnStock(operation, identifier) {
   const stockSearching = searchStock(identifier);
   const category = stockSearching[0].category;
   const allCategori = searchStockByCategory(category);
@@ -83,6 +83,24 @@ function OperateOnStock(operation, identifier) {
 
 function updadeLastUpdate() {
     stockMarket.lastUpdated=new Date();
-    return stockMarket.lastUpdated
+    // return stockMarket.lastUpdated
 }
 // console.log(updadeLastUpdate());
+
+export function checkUserChooseToBool(above) {
+    if (above===1){
+        return true
+    }
+    else{
+        return false
+    }
+}
+
+export function checkUserChooseString(operationChoose) {
+    if (operationChoose===1){
+        return 'buy'
+    }
+    else{
+        return 'sell'
+    }
+}
