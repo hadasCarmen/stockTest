@@ -17,10 +17,6 @@ function searchStockByCategory(identifier) {
   );
   return stockSearching;
 }
-// console.log(searchStockByCategory("education"));
-
-// console.log(stockMarket.stocks);
-// console.log(searchStock("x7l2df9"));
 
 export function filterStocksByPrice(givenPrice, above) {
   let stockFilter;
@@ -41,8 +37,6 @@ export function filterStocksByPrice(givenPrice, above) {
   }
 }
 
-// console.log(filterStocksByPrice(77, true));
-
 export function OperateOnStock(operation, identifier) {
   const stockSearching = searchStock(identifier);
   const category = stockSearching.category;
@@ -53,9 +47,11 @@ export function OperateOnStock(operation, identifier) {
 
   if (operation === "buy") {
     stockSearching.forEach((stock) => {
-        while (userChoose>stock.availableStocks) {
-          userChoose = readline.questionInt("how much many you want effect choose less");
-        }
+      while (userChoose > stock.availableStocks) {
+        userChoose = readline.questionInt(
+          "how much many you want effect choose less"
+        );
+      }
       stock.availableStocks -= userChoose;
     });
     allCategori.forEach((stock) => {
@@ -78,17 +74,11 @@ export function OperateOnStock(operation, identifier) {
     });
     updadeLastUpdate();
   }
-  //   console.log(stockMarket);
-  //   console.log(category);
-  //   console.log(allCategori);
 }
-// OperateOnStock("sell", "x7l2df9");
 
 function updadeLastUpdate() {
   stockMarket.lastUpdated = new Date();
-  // return stockMarket.lastUpdated
 }
-// console.log(updadeLastUpdate());
 
 export function checkUserChooseToBool(above) {
   if (above === 1) {
