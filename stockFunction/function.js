@@ -45,7 +45,7 @@ export function filterStocksByPrice(givenPrice, above) {
 
 export function OperateOnStock(operation, identifier) {
   const stockSearching = searchStock(identifier);
-  const category = stockSearching[0].category;
+  const category = stockSearching.category;
   const allCategori = searchStockByCategory(category);
   let userChoose;
 
@@ -53,7 +53,10 @@ export function OperateOnStock(operation, identifier) {
 
   if (operation === "buy") {
     stockSearching.forEach((stock) => {
-      stock.availableStocks += userChoose;
+        while (userChoose>stock.availableStocks) {
+          userChoose = readline.questionInt("how much many you want effect choose less");
+        }
+      stock.availableStocks -= userChoose;
     });
     allCategori.forEach((stock) => {
       if (stock.name === identifier || stock.id === identifier) {
@@ -64,7 +67,7 @@ export function OperateOnStock(operation, identifier) {
     });
   } else if (operation === "sell") {
     stockSearching.forEach((stock) => {
-      stock.availableStocks -= userChoose;
+      stock.availableStocks += userChoose;
     });
     allCategori.forEach((stock) => {
       if (stock.name === identifier || stock.id === identifier) {
@@ -73,34 +76,32 @@ export function OperateOnStock(operation, identifier) {
         stock.currentPrice *= 0.99;
       }
     });
-    updadeLastUpdate()
+    updadeLastUpdate();
   }
-//   console.log(stockMarket);
-//   console.log(category);
-//   console.log(allCategori);
+  //   console.log(stockMarket);
+  //   console.log(category);
+  //   console.log(allCategori);
 }
 // OperateOnStock("sell", "x7l2df9");
 
 function updadeLastUpdate() {
-    stockMarket.lastUpdated=new Date();
-    // return stockMarket.lastUpdated
+  stockMarket.lastUpdated = new Date();
+  // return stockMarket.lastUpdated
 }
 // console.log(updadeLastUpdate());
 
 export function checkUserChooseToBool(above) {
-    if (above===1){
-        return true
-    }
-    else{
-        return false
-    }
+  if (above === 1) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 export function checkUserChooseString(operationChoose) {
-    if (operationChoose===1){
-        return 'buy'
-    }
-    else{
-        return 'sell'
-    }
+  if (operationChoose === 1) {
+    return "buy";
+  } else {
+    return "sell";
+  }
 }
