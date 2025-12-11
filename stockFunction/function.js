@@ -73,9 +73,16 @@ function OperateOnStock(operation, identifier) {
         stock.currentPrice *= 0.99;
       }
     });
+    updadeLastUpdate()
   }
 //   console.log(stockMarket);
 //   console.log(category);
 //   console.log(allCategori);
 }
 // OperateOnStock("sell", "x7l2df9");
+
+function updadeLastUpdate() {
+    stockMarket.lastUpdated=new Date();
+    return stockMarket.lastUpdated
+}
+// console.log(updadeLastUpdate());
